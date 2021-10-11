@@ -2,9 +2,12 @@ import './App.css';
 import React, {Component} from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import { Switch, Route } from 'react-router-dom';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import NavBar from './components/NavBar/NavBar';
+
 
 class App extends Component {
   constructor(props) {
@@ -62,8 +65,11 @@ class App extends Component {
   render() { 
     return ( 
       <div>
-        < Registration userRegister = {this.userRegister}/>
-        <Login userLogin = {this.userLogin} />
+        <NavBar />
+        <Switch>
+          <Route path = "/registration" render={() => <Registration userRegister = {this.userRegister} />} />
+          <Route path = "/login" render={() => <Login userLogin = {this.userLogin} /> } />
+        </Switch>
         <Logout />
       </div>
      );
