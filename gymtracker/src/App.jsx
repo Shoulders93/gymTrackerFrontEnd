@@ -1,13 +1,25 @@
 import './App.css';
 import React, {Component} from 'react';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import Registration from './components/Registration';
+import Login from './components/Login';
+import Logout from './components/Logout';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
+
+  
+  componentDidMount() {
+    const jwt = localStorage.getItem('token');
+    try{
+        const user = jwtDecode(jwt);
+        this.setState({user});
+    } catch {}
+}
 
   userRegister = async (registereduser) => {
     console.log(registereduser);
@@ -24,11 +36,35 @@ class App extends Component {
     }
   }
 
+  userLogin = async (login) => {
+    try {
+        let response = await axios.post('http://127.0.0.1:8000/api/auth/login/',login);
+        if (response === undefined){
+            this.setState({});
+        }
+        else{
+            this.setState({
+                token: response.data,
+                user: this.state.user,
+                loggedIn: !this.state.loggedIn
+            });
+            localStorage.setItem('token', this.state.token.token);
+            console.log(this.state.token.token);
+            console.log(this.state.user);
+        }
+        console.log(response.data)
+    } catch(err) {
+         console.log(err)
+    }
+}
+
 
   render() { 
     return ( 
       <div>
         < Registration userRegister = {this.userRegister}/>
+        <Login userLogin = {this.userLogin} />
+        <Logout />
       </div>
      );
   }
