@@ -2,9 +2,9 @@ import './App.css';
 import React, {Component} from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import Registration from './components/Registration';
-import Login from './components/Login';
-import Logout from './components/Logout';
+import Registration from './components/Registration/Registration';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 
 class App extends Component {
   constructor(props) {
