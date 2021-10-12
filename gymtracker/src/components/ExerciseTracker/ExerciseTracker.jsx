@@ -1,7 +1,8 @@
 import React from "react";
 
 function DisplayExercises(props) {
-    if (props.exercises === undefined) {
+    console.log("Exercise Tracker incoming props: ", props)
+    if (props.allExercises === undefined) {
         console.log(props);
         return (
             null
