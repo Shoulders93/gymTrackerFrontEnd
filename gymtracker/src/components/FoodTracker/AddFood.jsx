@@ -33,7 +33,7 @@ class AddFood extends Component {
                 <input type='text' name="lunch" onChange={this.handleChange} value={this.state.lunch} />
                 <label>Dinner</label>
                 <input type='text' name="dinner" onChange={this.handleChange} value={this.state.dinner} />
-                <button type="submit">Add Exercise</button>
+                <button type="submit">Add</button>
             </form>
          );
     }

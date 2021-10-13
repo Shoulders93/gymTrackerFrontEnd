@@ -17,7 +17,8 @@ const NavBar = ({user}) => {
                     <li> <Link to = '/add_food'>Add your Meals</Link> </li>
                     <li> <Link to = '/display_foods'>Track your Meals</Link> </li>
 
-                    <li> <Link to = '/misc'>Track Misc Fields</Link> </li>
+                    <li> <Link to = '/add_misc'>Add Misc Fields</Link> </li>
+                    <li> <Link to = '/display_misc'>Track Misc Fields</Link> </li>
                     {!user &&
                         <React.Fragment>
                             <li>
