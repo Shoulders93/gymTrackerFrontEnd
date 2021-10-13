@@ -8,7 +8,6 @@ function DisplayExercises(props) {
             null
         );
     } else {
-        console.log(props.exercises);
         let exercises = props.allExercises.map((exercise) => {
             return <tr key={exercise.id}>
                 <td>{exercise.date}</td>
@@ -40,38 +39,3 @@ function DisplayExercises(props) {
 }
 
 export default DisplayExercises;
-
-
-
-
-
-//     return (
-//         <table className= 'center'>
-//             <thead>
-//                 <tr>
-//                     <th>Date</th>
-//                     <th>Exercise</th>
-//                     <th>Sets</th>
-//                     <th>Reps</th>
-//                     <th>Weight</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {console.log(props)}
-//                     {props.allExercises.map((exercise)=> {
-//                         return(
-//                             <tr key={exercise.id}>
-//                                 <td>{exercise.date}</td>
-//                                 <td>{exercise.exercise}</td>
-//                                 <td>{exercise.sets}</td>
-//                                 <td>{exercise.reps}</td>
-//                                 <td>{exercise.weight}</td>
-//                             </tr>
-//                         )
-//                     }  )}
-//             </tbody>
-//         </table>
-//     )
-// }
-
-// export default DisplayExercises;

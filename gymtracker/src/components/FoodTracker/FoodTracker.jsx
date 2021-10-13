@@ -1,13 +1,13 @@
 import React from "react";
 
 function DisplayFood(props) {
-    if (props.foods === undefined) {
+    console.log("Foods Tracker incoming props: ", props)
+    if (props.allFoods === undefined) {
         console.log(props);
         return (
             null
         );
     } else {
-        console.log(props.foods);
         let foods = props.allFoods.map((food) => {
             return <tr key={food.id}>
                 <td>{food.date}</td>
