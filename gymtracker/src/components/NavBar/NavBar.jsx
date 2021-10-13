@@ -12,10 +12,10 @@ const NavBar = ({user}) => {
                     <li> <Link to = '/getting_started'>Getting Started</Link> </li>
 
                     <li><Link to ='/add_exercises'>Add Your Exercises</Link></li>
-
                     <li><Link to ='/display_exercises'>Track Your Exercises</Link></li>
 
-                    <li> <Link to = '/foods'>Track your Meals</Link> </li>
+                    <li> <Link to = '/add_food'>Add your Meals</Link> </li>
+                    <li> <Link to = '/display_foods'>Track your Meals</Link> </li>
 
                     <li> <Link to = '/misc'>Track Misc Fields</Link> </li>
                     {!user &&

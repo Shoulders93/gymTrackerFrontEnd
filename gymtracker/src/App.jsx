@@ -13,6 +13,7 @@ import DisplayExercises from './components/ExerciseTracker/ExerciseTracker';
 import DisplayFood from './components/FoodTracker/FoodTracker';
 import DisplayMisc from './components/MiscTracker/MiscTracker';
 import AddExercise from './components/ExerciseTracker/AddExercise';
+import AddFood from './components/FoodTracker/AddFood';
 // import CreateDisplay from './components/ExerciseTracker/CreateAndDisplay';
 
 class App extends Component {
@@ -117,7 +118,7 @@ addUserFood= async (newFood) => {
   try{
     const jwt= localStorage.getItem('token');
     console.log("JWT: ", jwt)
-    let response = await axios.post('http://127.0.0.1:8000/api/gym/', newFood, {headers: {Authorization: 'Bearer ' + jwt}});
+    let response = await axios.post('http://127.0.0.1:8000/api/food/', newFood, {headers: {Authorization: 'Bearer ' + jwt}});
     console.log("Foods data:", response)
   }
     catch(err) {
@@ -155,7 +156,8 @@ getUserMisc = async () => {
           <Route path = "/display_exercises" component={() => <DisplayExercises allExercises = {this.state.exercises} />  } />
           {/* <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} /> && <DisplayExercises allExercises = {this.state.exercises} /> } /> */}
           {/* <Route path = "/exercises" component={() => <CreateDisplay createNewExercise = {this.props.addUserExercises} allExercises = {this.props.exercises}/>} /> */}
-          <Route path = "/foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
+          <Route path = "/add_food" component={() => <AddFood createNewFood={this.addUserFood} /> } />
+          <Route path = "/display_foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
           <Route path = "/misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout /> } />
         </Switch>
