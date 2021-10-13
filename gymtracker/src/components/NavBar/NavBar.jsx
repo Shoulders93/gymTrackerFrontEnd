@@ -11,7 +11,9 @@ const NavBar = ({user}) => {
 
                     <li> <Link to = '/getting_started'>Getting Started</Link> </li>
 
-                    <li><Link to ='/exercises'>Track Your Exercises</Link></li>
+                    <li><Link to ='/add_exercises'>Add Your Exercises</Link></li>
+
+                    <li><Link to ='/display_exercises'>Track Your Exercises</Link></li>
 
                     <li> <Link to = '/foods'>Track your Meals</Link> </li>
 

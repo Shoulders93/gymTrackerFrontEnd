@@ -13,6 +13,7 @@ import DisplayExercises from './components/ExerciseTracker/ExerciseTracker';
 import DisplayFood from './components/FoodTracker/FoodTracker';
 import DisplayMisc from './components/MiscTracker/MiscTracker';
 import AddExercise from './components/ExerciseTracker/AddExercise';
+// import CreateDisplay from './components/ExerciseTracker/CreateAndDisplay';
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class App extends Component {
       loggedIn: false,
       exercises: [],
       foods: [],
+      items: [],
      }
   }
 
@@ -111,6 +113,19 @@ getUserFoods = async () => {
   }
 }
 
+addUserFood= async (newFood) => {
+  try{
+    const jwt= localStorage.getItem('token');
+    console.log("JWT: ", jwt)
+    let response = await axios.post('http://127.0.0.1:8000/api/gym/', newFood, {headers: {Authorization: 'Bearer ' + jwt}});
+    console.log("Foods data:", response)
+  }
+    catch(err) {
+      console.log(err);
+  }
+  this.getUserFoods();
+}
+
 getUserMisc = async () => {
   try{
     const jwt= localStorage.getItem('token');
@@ -136,8 +151,10 @@ getUserMisc = async () => {
           <Route path = "/login" render={() => <Login userLogin = {this.userLogin} /> } />
           <Route path = "/" exact render={() => <Home />} />
           <Route path = "/getting_started" render ={() => <GettingStarted /> } />
-          {/* <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} />  } /> */}
-          <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} /> && <DisplayExercises allExercises = {this.state.exercises} /> } />
+          <Route path = "/add_exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} />  } />
+          <Route path = "/display_exercises" component={() => <DisplayExercises allExercises = {this.state.exercises} />  } />
+          {/* <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} /> && <DisplayExercises allExercises = {this.state.exercises} /> } /> */}
+          {/* <Route path = "/exercises" component={() => <CreateDisplay createNewExercise = {this.props.addUserExercises} allExercises = {this.props.exercises}/>} /> */}
           <Route path = "/foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
           <Route path = "/misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout /> } />
