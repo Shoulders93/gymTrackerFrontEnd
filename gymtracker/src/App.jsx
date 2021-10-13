@@ -12,6 +12,7 @@ import GettingStarted from './components/GettingStarted/GettingStarted';
 import DisplayExercises from './components/ExerciseTracker/ExerciseTracker';
 import DisplayFood from './components/FoodTracker/FoodTracker';
 import DisplayMisc from './components/MiscTracker/MiscTracker';
+import AddExercise from './components/ExerciseTracker/AddExercise';
 
 class App extends Component {
   constructor(props) {
@@ -83,10 +84,22 @@ getUserExercises = async () => {
   }
 }
 
-getUserFoods = async () => {
+addUserExercises = async (newExercise) => {
   try{
     const jwt= localStorage.getItem('token');
     console.log("JWT: ", jwt)
+    let response = await axios.post('http://127.0.0.1:8000/api/gym/', newExercise, {headers: {Authorization: 'Bearer ' + jwt}});
+    console.log("Exercises data:", response)
+  }
+    catch(err) {
+      console.log(err);
+  }
+  this.getUserExercises();
+}
+
+getUserFoods = async () => {
+  try{
+    const jwt= localStorage.getItem('token');
     let response = await axios.get('http://127.0.0.1:8000/api/food/', {headers: {Authorization: 'Bearer ' + jwt}});
     this.setState({
       foods: response.data
@@ -101,7 +114,6 @@ getUserFoods = async () => {
 getUserMisc = async () => {
   try{
     const jwt= localStorage.getItem('token');
-    console.log("JWT: ", jwt)
     let response = await axios.get('http://127.0.0.1:8000/api/misc/', {headers: {Authorization: 'Bearer ' + jwt}});
     this.setState({
       items: response.data
@@ -115,6 +127,7 @@ getUserMisc = async () => {
 
   render() { 
     const user = this.state.user;
+    debugger;
     return (
       <div>
         <NavBar user={user}/>
@@ -123,7 +136,8 @@ getUserMisc = async () => {
           <Route path = "/login" render={() => <Login userLogin = {this.userLogin} /> } />
           <Route path = "/" exact render={() => <Home />} />
           <Route path = "/getting_started" render ={() => <GettingStarted /> } />
-          <Route path = "/exercises" component={() => <DisplayExercises allExercises = {this.state.exercises} /> } />
+          {/* <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} />  } /> */}
+          <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} /> && <DisplayExercises allExercises = {this.state.exercises} /> } />
           <Route path = "/foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
           <Route path = "/misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout /> } />
