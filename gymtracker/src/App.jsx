@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import GettingStarted from './components/GettingStarted/GettingStarted';
 import DisplayExercises from './components/ExerciseTracker/ExerciseTracker';
 import DisplayFood from './components/FoodTracker/FoodTracker';
+import DisplayMisc from './components/MiscTracker/MiscTracker';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ componentDidMount() {
   } catch {}
   this.getUserExercises();
   this.getUserFoods();
+  this.getUserMisc();
 }
 
 userRegister = async (registereduser) => {
@@ -62,10 +64,11 @@ userLogin = async (login) => {
         console.log(err)
   }
   this.getUserExercises();
+  this.getUserFoods();
+  this.getUserMisc();
 }
 
 getUserExercises = async () => {
-  debugger;
   try{
     const jwt= localStorage.getItem('token');
     console.log("JWT: ", jwt)
@@ -95,6 +98,21 @@ getUserFoods = async () => {
   }
 }
 
+getUserMisc = async () => {
+  try{
+    const jwt= localStorage.getItem('token');
+    console.log("JWT: ", jwt)
+    let response = await axios.get('http://127.0.0.1:8000/api/misc/', {headers: {Authorization: 'Bearer ' + jwt}});
+    this.setState({
+      items: response.data
+    })
+    console.log("Misc data: ", response)
+  }
+    catch(err) {
+      console.log(err);
+  }
+}
+
   render() { 
     const user = this.state.user;
     return (
@@ -107,6 +125,7 @@ getUserFoods = async () => {
           <Route path = "/getting_started" render ={() => <GettingStarted /> } />
           <Route path = "/exercises" component={() => <DisplayExercises allExercises = {this.state.exercises} /> } />
           <Route path = "/foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
+          <Route path = "/misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout /> } />
         </Switch>
       </div>

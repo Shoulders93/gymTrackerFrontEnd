@@ -9,15 +9,13 @@ const NavBar = ({user}) => {
                 <ul>
                     <li><Link to ='/' >Home</Link></li>
 
-                    {/* <li><Link to ='/registration'>Register</Link></li>
-
-                    <li><Link to ='/login'>Login</Link></li> */}
-                    
                     <li> <Link to = '/getting_started'>Getting Started</Link> </li>
 
                     <li><Link to ='/exercises'>Track Your Exercises</Link></li>
 
                     <li> <Link to = '/foods'>Track your Meals</Link> </li>
+
+                    <li> <Link to = '/misc'>Track Misc Fields</Link> </li>
                     {!user &&
                         <React.Fragment>
                             <li>
