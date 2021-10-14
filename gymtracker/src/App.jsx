@@ -157,7 +157,6 @@ addUserMisc= async (newMisc) => {
 
   render() { 
     const user = this.state.user;
-    debugger;
     return (
       <div>
         <NavBar user={user}/>
