@@ -52,6 +52,8 @@ userRegister = async (registereduser) => {
     });
     console.log(registereduser)
   }
+  this.componentDidMount();
+  window.location.href = '/login'
 }
 
 userLogin = async (login) => {
@@ -71,6 +73,8 @@ userLogin = async (login) => {
   this.getUserExercises();
   this.getUserFoods();
   this.getUserMisc();
+  this.componentDidMount();
+  window.location.href = '/getting_started'
 }
 
 getUserExercises = async () => {
@@ -99,6 +103,7 @@ addUserExercises = async (newExercise) => {
       console.log(err);
   }
   this.getUserExercises();
+  window.location.href ='/display_exercises'
 }
 
 getUserFoods = async () => {
@@ -126,6 +131,7 @@ addUserFood= async (newFood) => {
       console.log(err);
   }
   this.getUserFoods();
+  window.location.href ='/display_foods'
 }
 
 getUserMisc = async () => {
@@ -152,6 +158,7 @@ addUserMisc= async (newMisc) => {
       console.log(err);
   }
   this.getUserMisc();
+  window.location.href = '/display_misc'
 }
 
 
@@ -174,10 +181,11 @@ addUserMisc= async (newMisc) => {
           <Route path = "/display_foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
           <Route path = "/add_misc" render = {() => <AddMisc createNewMisc = {this.addUserMisc} />} />
           <Route path = "/display_misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
-          <Route path = "/logout" render={() => <Logout /> } />
+          <Route path = "/logout" render={() => <Logout componentDidMount/> } />
         </Switch>
 
         </div>
+        
       </div>
      );
   }

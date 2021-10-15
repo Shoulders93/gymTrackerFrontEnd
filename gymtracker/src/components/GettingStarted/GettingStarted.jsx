@@ -33,14 +33,16 @@ const GettingStarted = () => {
                 Do 3 sets of 10 repetitions each <br />
                 Check out the video below on bench press tips and form. Below that are images showing how to do the other exercises<br />
             </h6> <br/>
-            <div className="your-centered-div">
-                <ReactPlayer 
+            <div className="video" >
+                <ReactPlayer
                     url="https://www.youtube.com/watch?v=4T9UQ4FBVXI"
+                    width='auto'
+                    height='600px'
                     />
             </div> <br/>
             <table>
                 <thead>
-                    <tr>
+                    <tr  className='image'>
                         <th><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8UBvEjvFXuetovwEmRkc8QHaIb%26pid%3DApi&f=1" alt='' height="200" width="200" /></th> 
                         <th><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.qvYc6-0XUxAyiVA-evDKFQHaFe%26pid%3DApi&f=1" alt='' height="200" width="200" /></th>
                         <th><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.IggMPj6iGx7BLIzLvh4Q8wHaEL%26pid%3DApi&f=1" alt='' height="200" width="200" /></th>
