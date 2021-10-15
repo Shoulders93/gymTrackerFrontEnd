@@ -158,8 +158,9 @@ addUserMisc= async (newMisc) => {
   render() { 
     const user = this.state.user;
     return (
-      <div>
-        <NavBar classname ="navbar navbar-expand-lg navbar-light bg-light" user={user}/>
+      <div className='App'>
+        <NavBar user={user}/>
+        <div className="NavBar">
         <Switch>
           <Route path = "/registration" render={() => <Registration userRegister = {this.userRegister} />} />
           <Route path = "/login" render={() => <Login userLogin = {this.userLogin} /> } />
@@ -175,6 +176,8 @@ addUserMisc= async (newMisc) => {
           <Route path = "/display_misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout /> } />
         </Switch>
+
+        </div>
       </div>
      );
   }

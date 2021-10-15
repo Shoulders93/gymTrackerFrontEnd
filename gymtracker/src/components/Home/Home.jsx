@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = () => {
     return(
-        <div>
+        <div className="text-center">
             <h1>Hello future Health Enthusiast!</h1> <br/>
             <h5>Have you ever wanted to sign up for a Gym Membership?</h5> <br/>
 
