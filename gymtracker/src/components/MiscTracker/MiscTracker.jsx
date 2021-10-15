@@ -17,6 +17,7 @@ function DisplayMisc(props) {
          
             dates_array.push(item.date)
             sleep_array.push(item.hours_slept)
+            bodyweight_array.push(item.bodyweight)
             return <tr key={item.id}>
                 <td>{item.date}</td>
                 <td>{item.hours_slept}</td>
@@ -42,7 +43,7 @@ function DisplayMisc(props) {
                         {items}
                     </tbody>
                 </table>
-                <div>
+            <div>
             <Line
                 data={{
                     labels: dates_array,
@@ -53,10 +54,12 @@ function DisplayMisc(props) {
 
                     }]
                     }}
+                    
                 
                 height={400}
                 width={600}
                 options={{
+                    responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                         y:{beginAtZero: true}
@@ -64,8 +67,29 @@ function DisplayMisc(props) {
                 }}
                     />
             
-        </div>
-            </div>
+                </div> <br/> 
+                <Line
+                data={{
+                    labels: dates_array,
+                    datasets: [{
+                        label: 'Bodyweight',
+                        data: bodyweight_array,
+                        backgroundColor: 'green',
+
+                    }]
+                    }}
+                
+                height={400}
+                width={600}
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y:{beginAtZero: true}
+                    }
+                }}
+                    />
+                    </div>
         )
     }
 }
