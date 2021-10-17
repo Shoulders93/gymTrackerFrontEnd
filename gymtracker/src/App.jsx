@@ -15,7 +15,8 @@ import DisplayMisc from './components/MiscTracker/MiscTracker';
 import AddExercise from './components/ExerciseTracker/AddExercise';
 import AddFood from './components/FoodTracker/AddFood';
 import AddMisc from './components/MiscTracker/AddMisc';
-// import CreateDisplay from './components/ExerciseTracker/CreateAndDisplay';
+import Footer from './components/Footer/Footer';
+
 
 class App extends Component {
   constructor(props) {
@@ -167,7 +168,7 @@ addUserMisc= async (newMisc) => {
     return (
       <div className='App'>
         <NavBar user={user}/>
-        <div className="NavBar">
+        <div >
         <Switch>
           <Route path = "/registration" render={() => <Registration userRegister = {this.userRegister} />} />
           <Route path = "/login" render={() => <Login userLogin = {this.userLogin} /> } />
@@ -183,6 +184,7 @@ addUserMisc= async (newMisc) => {
           <Route path = "/display_misc" render = {() => <DisplayMisc allMisc = {this.state.items} />} />
           <Route path = "/logout" render={() => <Logout componentDidMount/> } />
         </Switch>
+        <Footer />
 
         </div>
         

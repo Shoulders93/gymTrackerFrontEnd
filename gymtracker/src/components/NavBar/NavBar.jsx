@@ -6,42 +6,41 @@ const NavBar = ({user}) => {
     return(
 
 
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-            <div className='container-fluid'>
-                    <div>
-                        <div className='navbar-brand'><Link to ='/' >Home</Link></div>
+        <nav className=''>
+            <div className=''>
+                    <ul>
+                        <li className='navigation'><Link to ='/' >Home</Link></li>
 
-                        <div className='nav-item'> <Link to = '/getting_started'>Getting Started</Link> </div>
+                        <li className='navigation'> <Link to = '/getting_started'>Getting Started</Link> </li>
 
                         {!user &&
                             <React.Fragment>
-                                <div className='nav-item'>
+                                <li className='navigation'>
                                     <Link to ='/login'>Login</Link>
-                                </div>
-                                <div className='nav-item'>
+                                </li>
+                                <li className='navigation'>
                                     <Link to ='/registration'>Register</Link>
-                                </div>
+                                </li>
                             </React.Fragment>
                         }
                         {user && 
                         <React.Fragment>
 
-                        <div className='nav-item'><Link to ='/add_exercises'>Add Your Exercises</Link></div>
-                        <div className='nav-item'><Link to ='/display_exercises'>Track Your Exercises</Link></div>
+                        <li className='navigation'><Link to ='/add_exercises'>Add Your Exercises</Link></li>
+                        <li className='navigation'><Link to ='/display_exercises'>Track Your Exercises</Link></li>
 
-                        <div className='nav-item'> <Link to = '/add_food'>Add your Meals</Link> </div>
-                        <div className='nav-item'> <Link to = '/display_foods'>Track your Meals</Link> </div>
+                        <li className='navigation'> <Link to = '/add_food'>Add your Meals</Link> </li>
+                        <li className='navigation'> <Link to = '/display_foods'>Track your Meals</Link> </li>
 
-                        <div className='nav-item'> <Link to = '/add_misc'>Add Misc Fields</Link> </div>
-                        <div className='nav-item'> <Link to = '/display_misc'>Track Misc Fields</Link> </div>
+                        <li className='navigation'> <Link to = '/add_misc'>Add Misc Fields</Link> </li>
+                        <li className='navigation'> <Link to = '/display_misc'>Track Misc Fields</Link> </li>
 
-                            <div className='nav-item'> 
-                                <Link to = '/logout'>Logout</Link>
-                            </div>
+                        <li className='navigation'> <Link to = '/logout'>Logout</Link></li>
+                        
                         </React.Fragment>
                         }
 
-                    </div>
+                    </ul>
             </div>
         </nav>
     )
