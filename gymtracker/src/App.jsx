@@ -176,8 +176,6 @@ addUserMisc= async (newMisc) => {
           <Route path = "/getting_started" render ={() => <GettingStarted /> } />
           <Route path = "/add_exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} />  } />
           <Route path = "/display_exercises" component={() => <DisplayExercises allExercises = {this.state.exercises} />  } />
-          {/* <Route path = "/exercises" component={() => <AddExercise createNewExercise={this.addUserExercises} /> && <DisplayExercises allExercises = {this.state.exercises} /> } /> */}
-          {/* <Route path = "/exercises" component={() => <CreateDisplay createNewExercise = {this.props.addUserExercises} allExercises = {this.props.exercises}/>} /> */}
           <Route path = "/add_food" component={() => <AddFood createNewFood={this.addUserFood} /> } />
           <Route path = "/display_foods" render = {() => <DisplayFood allFoods = {this.state.foods} />} />
           <Route path = "/add_misc" render = {() => <AddMisc createNewMisc = {this.addUserMisc} />} />

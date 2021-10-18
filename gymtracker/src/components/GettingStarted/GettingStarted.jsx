@@ -73,7 +73,7 @@ const GettingStarted = () => {
                     </tr>
                 </thead>
             </table> <br/> <br/>
-            <div>
+            <div className="video">
                 <ReactPlayer 
                     url="https://www.youtube.com/watch?v=nhoikoUEI8U"
                     />
@@ -96,7 +96,7 @@ const GettingStarted = () => {
                     </tr>
                 </thead>
             </table> <br/> <br/>
-            <div>
+            <div className="video">
                 <ReactPlayer 
                     url="https://www.youtube.com/watch?v=4AObAU-EcYE"
                     />
