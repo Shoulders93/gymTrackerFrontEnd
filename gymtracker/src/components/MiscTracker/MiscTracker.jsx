@@ -48,8 +48,8 @@ function DisplayMisc(props) {
                 data={{
                     labels: dates_array,
                     datasets: [{
-                        label: 'Hours Slept',
-                        data: sleep_array,
+                        label: 'BodyWeight',
+                        data: bodyweight_array,
                         backgroundColor: 'green',
 
                     }]
@@ -68,7 +68,7 @@ function DisplayMisc(props) {
                     />
             
                 </div> <br/> 
-                <Line
+                {/* <Line
                 data={{
                     labels: dates_array,
                     datasets: [{
@@ -88,7 +88,7 @@ function DisplayMisc(props) {
                         y:{beginAtZero: true}
                     }
                 }}
-                    />
+                    /> */}
                     </div>
         )
     }
