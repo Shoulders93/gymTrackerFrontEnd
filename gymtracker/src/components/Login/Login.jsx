@@ -29,6 +29,16 @@ class Login extends Component {
         });
     }
 
+    verifyPassword =() =>{
+        let x = document.getElementById('myInput');
+        if (x.type === 'password'){
+            x.type = 'text';
+        }
+        else {
+            x.type = 'password';
+        }
+    }
+
     render() { 
         return ( 
             <div className= "login">
@@ -36,7 +46,9 @@ class Login extends Component {
                     <label>Username</label>
                     <input type='text' name='username' onChange={this.handleChange} value={this.state.username} />
                     <label>Password</label>
-                    <input type='text' name='password' onChange={this.handleChange} value={this.state.password} />
+                    <input type='password' name='password' id = 'myInput'onChange={this.handleChange} value={this.state.password} />
+                    <input type = 'checkbox' onClick={this.verifyPassword} />
+                    <label>Show Password</label>
                     <button type="submit">Submit</button>
                 </form>
             </div>
